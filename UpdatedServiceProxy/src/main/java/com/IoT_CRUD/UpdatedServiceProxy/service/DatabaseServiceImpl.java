@@ -11,8 +11,10 @@ import io.vertx.ext.sql.SQLConnection;
 
 public class DatabaseServiceImpl implements DatabaseServiceProxy {
 
-  private final SQLClient sqlClient;
-
+  private SQLClient sqlClient;
+  public DatabaseServiceImpl(SQLClient sqlClient) {
+    this.sqlClient = sqlClient;
+  }
   public DatabaseServiceImpl(io.vertx.core.Vertx vertx, JsonObject config) {
     this.sqlClient = JDBCClient.createShared(vertx, config);
   }

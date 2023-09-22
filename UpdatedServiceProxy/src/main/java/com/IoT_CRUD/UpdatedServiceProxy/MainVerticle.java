@@ -1,11 +1,12 @@
 package com.IoT_CRUD.UpdatedServiceProxy;
 import com.IoT_CRUD.UpdatedServiceProxy.APIs.APIVerticle;
 import com.IoT_CRUD.UpdatedServiceProxy.service.PostgresVerticle;
+import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Vertx;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
 
-public class MainVerticle {
+public class MainVerticle extends AbstractVerticle {
   private static final Logger logger = LoggerFactory.getLogger(MainVerticle.class);
 
   public static void main(String[] args) {

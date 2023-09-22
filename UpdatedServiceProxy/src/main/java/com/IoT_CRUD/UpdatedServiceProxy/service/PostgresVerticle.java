@@ -16,14 +16,13 @@ public class PostgresVerticle extends AbstractVerticle {
       .put("user", "postgres")
       .put("password", "Postgres@12");
 
-    // Create an instance of the database service
-    DatabaseServiceImpl databaseService = new DatabaseServiceImpl(vertx, config);
+    // Create service instance
+    DatabaseServiceProxy databaseService = new DatabaseServiceImpl(vertx, config);
 
     // Register the service proxy
     new ServiceBinder(vertx)
       .setAddress("database-service-address")
       .register(DatabaseServiceProxy.class, databaseService);
-
     startPromise.complete();
   }
 
